@@ -4,7 +4,7 @@ import './index.css';
 
 function Square(props) {
     return (
-      <button className="square" onClick={props.onClick}>
+      <button className="square text-white bg-blue-700" onClick={props.onClick}>
         {props.value}
       </button>
     );
@@ -86,7 +86,7 @@ class Game extends React.Component {
         'Go to game start';
       return (
         <div key={move}>
-          <button className="bg-blue-400" onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="bg-blue-400 p-2 my-2 text-white rounded hover:bg-blue-500" onClick={() => this.jumpTo(move)}>{desc}</button>
         </div>
       );
     });
@@ -98,15 +98,17 @@ class Game extends React.Component {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board 
-            squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
-          />
+      <div className="game items-center justify-center h-screen bg-blue-700">
+        <div className="">
+          <h1 className="text-3xl text-center pb-5 text-white">{status}</h1>
+          <div className="game-board">
+            <Board 
+              squares={current.squares}
+              onClick={(i) => this.handleClick(i)}
+            />
+          </div>
         </div>
         <div className="game-info">
-          <div>{status}</div>
           <div>{moves}</div>
         </div>
       </div>
